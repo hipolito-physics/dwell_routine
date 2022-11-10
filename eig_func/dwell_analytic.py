@@ -1,4 +1,5 @@
 #Python 3.8.10 (default, Out 27 2022, 20:18:18)
+#Paulo Victor Hipolito Pires
 import time
 import configparser
 import sys
@@ -10,7 +11,7 @@ from scipy import optimize
 import warnings
 warnings.filterwarnings('ignore')
 
-#
+
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -45,10 +46,9 @@ n_quantico = int(input('Digite o número quântico desejado: '))
 # +-------------------------------+
 # |  CONDICIONAL NÚMERO QUÂNTICO  |
 # +-------------------------------+
-inicio_tempo = time.time()
 
 if n_quantico <= 0 or n_quantico > 10:
-    print("Insira valores para n_quantico entre 1 e 10 e tente novamente")
+    print("Insira valores para o número quântico entre 1 e 10 e tente novamente")
     sys.exit()
 
 
@@ -237,13 +237,6 @@ else:
             return (root_i * (F_i*np.exp(-np.abs(q_3_i)*x)))[n_quantico]
         if x < 0:
             return (-root_i * (F_i*np.exp(np.abs(q_3_i)*x)))[n_quantico]
-
-
-fim_tempo = time.time()
-variacao_tempo = fim_tempo - inicio_tempo
-if variacao_tempo <= 60:
-    print("Tempo de execução: %f" % (float(variacao_tempo)),"segundos")
-
 
 
 
