@@ -1,14 +1,4 @@
-import time
-import configparser
-import sys
-import matplotlib.pyplot as plt
-import numpy as np
-np.seterr(divide='ignore', invalid='ignore')
-from scipy.integrate import quad
-from scipy import optimize
 from dwell_analytic import *
-config = configparser.ConfigParser()
-config.read('config.ini')
 
 # +--------------------------------+
 # | FUNÇÃO DE ONDA PAR NORMALIZADA |
