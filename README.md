@@ -1,4 +1,4 @@
-# dwell_routine
+# Poço Duplo Finito/Double Finite Well
 Implementação das funções de ondas normalizadas para o problema do poço duplo finito.
 
 Para verificação das funções de onda, basta executar o arquivo 'eigen_function.py', inserindo o número quântico desejado.
