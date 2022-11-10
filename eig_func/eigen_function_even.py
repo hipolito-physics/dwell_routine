@@ -46,7 +46,7 @@ if teste_par != 0:
     print('Função de onda Par para n_quantico = ',n_quantico)
 
     t=np.linspace(-7,7,1000)
-    plt.plot(t, np.array(list(map(psi_n_p, t))),"r-")      #Elevar ao quadrado
+    plt.plot(t, np.array(list(map(psi_n_p, t)))**2,"r-")      #Elevar ao quadrado
     plt.ylabel('Psi²(x)')
     plt.xlabel('x')
     plt.legend(['Função de onda Par'])
@@ -79,7 +79,7 @@ else:
 
     t=np.linspace(-7,7,1000)
     #plt.figure(figsize=(5,8))
-    plt.plot(t, np.array(list(map(psi_n_i, t))),"g-")      #Elevar ao quadrado
+    plt.plot(t, np.array(list(map(psi_n_i, t)))**2,"g-")      #Elevar ao quadrado
     plt.ylabel('Psi²(x)')
     plt.xlabel('x')
     plt.legend(['Função de onda Ímpar'])
