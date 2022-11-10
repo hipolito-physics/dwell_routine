@@ -10,18 +10,6 @@ from dwell_analytic import *
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-# +-------------------------------+
-# |         Parâmetros            |
-# +-------------------------------+
-
-m = float(config['parametros']['m'])
-h_bar = float(config['parametros']['h_bar'])
-V_B = float(config['potencial']['V_B'])
-V_D = float(config['potencial']['V_D'])
-n = float(config['delta']['n'])
-a = float(config['poco']['a'])
-L = float(config['poco']['L'])
-
 # +--------------------------------+
 # | FUNÇÃO DE ONDA PAR NORMALIZADA |
 # +--------------------------------+
@@ -75,11 +63,10 @@ else:
 # | PLOT DAS FUNÇÕES DE ONDA ÍMPAR |
 # +--------------------------------+
 
-    print('Função de onda Par para n_quantico = ',n_quantico)
+    print('Função de onda Ímpar para n_quantico = ',n_quantico)
 
     t=np.linspace(-7,7,1000)
-    #plt.figure(figsize=(5,8))
-    plt.plot(t, np.array(list(map(psi_n_i, t)))**2,"g-")      #Elevar ao quadrado
+    plt.plot(t, np.array(list(map(psi_n_i, t)))**2,"r-")      #Elevar ao quadrado
     plt.ylabel('Psi²(x)')
     plt.xlabel('x')
     plt.legend(['Função de onda Ímpar'])
