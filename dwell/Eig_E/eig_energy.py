@@ -68,6 +68,7 @@ E_i = [finder_roots.find_roots(func_odd,-V_D+0.01,-0.01,1000)]
 np.savetxt("../dat/eig_energy_i.txt",E_i[0])
 if __name__ == '__main__':
     print('\n Energias Ímpares: \n',E_i)
+      
 
 #EOF
 

@@ -160,8 +160,9 @@ def normal_constant(H):
     return H**2*(int_1 + int_2 + int_3) - 0.5
 
 #Solução para H negativo
-root = optimize.brentq(normal_constant,-10,0)
-#print(root)
+root = optimize.brentq(normal_constant,-1,-0.01)
+
+print(root)
 
 # +-------------------------------+
 # |  FUNÇÕES DE ONDA POR REGIÃO   |
