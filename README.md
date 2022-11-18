@@ -5,7 +5,7 @@ Para executar a rotina, basta atentar alguns passos:
 
 ### 1 Definir os parâmetros
 
-  Deve-se definir os parâmetros (arquivo config.ini), variando o número quântico ( $n$, onde valores ímpares desta variável representam energias pares e valores pares representam energias ímpares, respectivamente), a barreira de potencial (variáveis $V_B$ e $V_D$) e a largura do poço (variáveis $a$ e $L$).
+  Deve-se definir os parâmetros (arquivo config.ini), variando o número quântico ( $n$, onde valores ímpares desta variável representam energias pares e valores pares desta variável representam energias ímpares, respectivamente), a barreira de potencial (variáveis $V_B$ e $V_D$) e a largura do poço (variáveis $a$ e $L$).
 
   É possível que, para casos limites, pode ocasionar algumas indeterminações.
 
