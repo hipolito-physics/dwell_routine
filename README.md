@@ -7,11 +7,11 @@ Para executar a rotina, basta atentar alguns passos:
 
   Deve-se definir os parâmetros (arquivo config.ini), variando o número quântico ( $n$, onde valores ímpares desta variável representam energias pares e valores pares desta variável representam energias ímpares, respectivamente), a barreira de potencial (variáveis $V_B$ e $V_D$) e a largura do poço (variáveis $a$ e $L$).
 
-  É possível que, para casos limites, pode ocasionar algumas indeterminações, gerando erros no cálculo das energias e consequentemente na visualização das funções de onda.
+  É possível que, para casos limites, pode ocasionar algumas indeterminações, gerando erros no cálculo das energias e consequentemente na visualização do módulo das funções de onda.
 
 ### 2 Executar a rotina 'eig_energy.py'
 
-  Após definir os parâmetros, deve-se executar a rotina mencionada acima, com intuito de encontrar as energias do poço para a implementação das funções de onda.
+  Após definir os parâmetros, deve-se executar a rotina mencionada acima, com intuito de encontrar as energias do poço para a implementação do módulo das funções de onda.
 
 ### 3 Executar a rotina 'eigen_function.py'
 
