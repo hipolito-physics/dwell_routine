@@ -26,7 +26,7 @@ if not paridade == 0:
 else:
     print('Função de onda Ímpar para n = ',n_quantico)
 
-t=np.linspace(-7,7,1000)
+t=np.linspace(-2*L,2*L,1000)
 plt.plot(t, np.array(list(map(psi_n, t)))**2,"b-")      #Elevar ao quadrado
 plt.ylabel('Psi²(x)')
 plt.xlabel('x')

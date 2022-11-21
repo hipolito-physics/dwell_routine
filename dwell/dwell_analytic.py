@@ -5,6 +5,7 @@ import sys
 import numpy as np
 from scipy.integrate import quad
 from scipy import optimize
+from Eig_E import finder_roots
 import warnings 
 
 warnings.simplefilter("ignore", np.ComplexWarning) #A função quad dá warnings quando o número é real porem do tipo n + 0j, onde n é real.
@@ -32,6 +33,8 @@ n = float(config['delta']['n'])
 a = float(config['poco']['a'])
 L = float(config['poco']['L'])
 
+#Print para eigen_function.py
+
 if not __name__ == '__main__':
     print("......PARÂMETROS DA ROTINA...... \n")
     print("mass............................... %f\n" % mass)
@@ -42,22 +45,13 @@ if not __name__ == '__main__':
     print("L............................... %f\n" % L)
 
 
-
 # +-------------------------------+
 # |       ENERGIAS PRÓPRIAS       |
 # +-------------------------------+
 
 
-#Energias Pares
-E_p = np.loadtxt('../dwell/dat/eig_energy_p.txt')
-#print('Energias Pares \n',E_p)
-
-#Energias Ímpares
-E_i = np.loadtxt('../dwell/dat/eig_energy_i.txt')
-#print('\n Energias Ímpares \n',E_i)
-
 #Energias Totais
-E_t = np.sort(np.concatenate((E_p, E_i)))
+E_t = np.loadtxt('../dwell/dat/eig_energy_total.txt')
 #print(E_t)
 
 # +-------------------------------+
@@ -75,6 +69,7 @@ if n_quantico <= 0 or n_quantico > len(E_t):
     print("Insira valores para n_quantico entre 1 e ",len(E_t)," e tente novamente")
     sys.exit()
 
+
 # +-------------------------------+
 # |   EQUAÇÕES Q_1 , Q_2 , Q_3    |
 # +-------------------------------+
@@ -82,8 +77,6 @@ if n_quantico <= 0 or n_quantico > len(E_t):
 q_1 = np.sqrt((2*mass*(V_D-V_B+E_t)/h_bar**2)+0j)[n_quantico - 1]
 q_2 = np.sqrt((2*mass*(V_D+E_t))/h_bar**2)[n_quantico - 1]
 q_3 = np.sqrt((2*mass*E_t)/h_bar**2+0j)[n_quantico - 1]
-
-
 
 
 # +-------------------------------+
@@ -118,11 +111,11 @@ F = -((q_2)*np.cos(sigma_2_pos-delta)-np.abs(q_3)*np.sin(sigma_2_pos-delta))/(2*
 #Condicional para n_quantico Par
 if not paridade == 0:
     A = (np.sin(sigma_2_neg-delta)*np.cos(sigma_1)-q_2/q_1*np.cos(sigma_2_neg-delta)*np.sin(sigma_1))
-
+    #print(A)
 #Condicional para n_quantico Ímpar    
 else:
     B = (np.sin(sigma_2_neg - delta)*np.sin(sigma_1)+(q_2/q_1)*np.cos(sigma_2_neg - delta)*np.cos(sigma_1))
-    
+    #print(B)
     
 # +-------------------------------+
 # |         NORMALIZAÇÃO          |
@@ -160,9 +153,11 @@ def normal_constant(H):
     return H**2*(int_1 + int_2 + int_3) - 0.5
 
 #Solução para H negativo
-root = optimize.brentq(normal_constant,-1,-0.01)
+#root = optimize.brentq(normal_constant,-1,-0.01)
+root = finder_roots.find_roots(normal_constant,-2,0,1000000)
 
-print(root)
+if __name__ == '__main__':
+    print('Constante H:',root)
 
 # +-------------------------------+
 # |  FUNÇÕES DE ONDA POR REGIÃO   |

@@ -41,12 +41,7 @@ def func_even(E):
     f_2 = np.real((sigma_1*np.tan(sigma_1)))
     return f_1 - f_2
 
-# Salva as Energias respectivas
-
-E_p = [finder_roots.find_roots(func_even,-V_D+0.01,-0.01,1000)]
-np.savetxt("../dat/eig_energy_p.txt",E_p[0])
-if __name__ == '__main__':
-    print('\nEnergias Pares: \n',E_p)
+E_p = [finder_roots.find_roots(func_even,-V_D+0.01,-1e-5,1000)][0]
 
 # Energia Ímpar:
 
@@ -62,12 +57,22 @@ def func_odd(E):
     f_2 = np.real((sigma_1*1/(np.tan(sigma_1))))
     return f_1 + f_2
 
-# Salva as Energias respectivas
+E_i = [finder_roots.find_roots(func_odd,-V_D+0.01,-1e-5,1000)][0]
 
-E_i = [finder_roots.find_roots(func_odd,-V_D+0.01,-0.01,1000)]
-np.savetxt("../dat/eig_energy_i.txt",E_i[0])
+#Energias totais em ordem crescente
+
+E_t = np.sort(np.concatenate((E_p, E_i)), axis=None)
+
+#Salva as energias concatenadas entre pares e ímpares
+
+np.savetxt("../dat/eig_energy_total.txt",E_t)
+
 if __name__ == '__main__':
-    print('\n Energias Ímpares: \n',E_i)
+    print('\n Energias Totais')
+    print(E_t)
+    print('\n Níveis de Energia: ',len(E_t))
+
+    
       
 
 #EOF

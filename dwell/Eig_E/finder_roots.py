@@ -8,7 +8,7 @@ import numpy as np
 def zbrak(func,xmin,xmax,nsteps):
 
     dx = abs(xmax-xmin)/nsteps # Define a largura do passo
-    ds = dx/4 # Caso a raiz esteja exatamente sobre o intervalo ele gera um pequeno deslocamnto ds
+    ds = dx/8 # Caso a raiz esteja exatamente sobre o intervalo ele gera um pequeno deslocamnto ds
 
 
     a = xmin
@@ -59,7 +59,7 @@ def find_roots(func,x1,x2,ndiv):
         #   Essa parte do código faz o teste se a raíz encontrada é de fato uma raíz da equação
         root_test = func(root)
         if abs(root_test)<1E-9:
-             #print(root_test) # Teste para verificar se o valor encontrado é uma função, desative o comentário para funcionar
+             #print(root_test) # Teste para verificar se o valor encontrado é uma raíz, desative o comentário para funcionar
              roots.append([root])
         m+=1
 
