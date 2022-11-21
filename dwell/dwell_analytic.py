@@ -154,7 +154,7 @@ def normal_constant(H):
 
 #Solução para H negativo
 #root = optimize.brentq(normal_constant,-1,-0.01)
-root = finder_roots.find_roots(normal_constant,-2,0,1000000)
+root = finder_roots.find_roots(normal_constant,-2,0,1000000)[0][0]
 
 if __name__ == '__main__':
     print('Constante H:',root)
